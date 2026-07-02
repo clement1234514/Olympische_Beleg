@@ -48,6 +48,8 @@ Moderne Webbrowser blockieren das asynchrone Laden lokaler Dateien (wie CSV- ode
    
    *Hinweis:* Sollte die Karte nicht direkt geladen werden, drücke einmal **`Strg + F5`** (Windows) bzw. **`Cmd + Shift + R`** (Mac), um den Browser-Cache vollständig zu leeren.
 
+   Live verfügbar über http://clement1234514.me/Olympische_Beleg/ 
+
 ---
 
 ##  Projektstruktur im Überblick
