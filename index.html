@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <!-- Responsives Layout für mobile Geräte -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titel der Seite -->
+    <title>Olympische Medaillen in Europa (1996-2024)</title>
+
+    <!-- Externe CSS-Datei -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- D3.js Bibliothek für Datenvisualisierung -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+</head>
+
+<body>
+    <!-- Kopfbereich der Seite -->
+    <header class="page-header">
+        <div class="header-content">
+            <h1>Olympische Sommermedaillen in Europa</h1>
+            <p class="subtitle">
+                Gold-, Silber- und Bronzemedaillen europaeischer Laender von 1996 bis 2024.
+            </p>
+        </div>
+    </header>
+
+    <!-- Hauptbereich des Dashboards -->
+    <main class="dashboard">
+
+        <!-- Filterbereich: Auswahl des Jahres -->
+        <section class="toolbar" aria-label="Filter">
+            <div>
+                <label for="year-select">Zeitraum auswaehlen</label>
+                <!-- Dropdown für Jahresauswahl -->
+                <select id="year-select" aria-label="Jahr oder Gesamtzeitraum auswaehlen"></select>
+            </div>
+
+            <!-- Hinweis, ob alle Länder im GeoJSON enthalten sind -->
+            <p id="coverage-note">Daten werden geladen...</p>
+        </section>
+
+        <!-- Übersichtskarten mit Kennzahlen -->
+        <section class="summary-grid" aria-label="Zusammenfassung">
+
+            <!-- Anzahl der Länder -->
+            <article class="metric-card">
+                <span class="metric-label">Laender im Datensatz</span>
+                <strong id="metric-countries">-</strong>
+            </article>
+
+            <!-- Anzahl der Goldmedaillen -->
+            <article class="metric-card">
+                <span class="metric-label">Goldmedaillen</span>
+                <strong id="metric-gold">-</strong>
+            </article>
+
+            <!-- Gesamtzahl aller Medaillen -->
+            <article class="metric-card">
+                <span class="metric-label">Gesamtmedaillen</span>
+                <strong id="metric-total">-</strong>
+            </article>
+
+            <!-- Länder ohne Medaille -->
+            <article class="metric-card">
+                <span class="metric-label">Laender ohne Medaille</span>
+                <strong id="metric-zero">-</strong>
+            </article>
+        </section>
+
+        <!-- Hauptinhalt: Karte + Seitenpanel -->
+        <section class="content-grid">
+
+            <!-- Kartenbereich -->
+            <section class="map-panel" aria-label="Europakarte">
+                <div class="section-title">
+                    <div>
+                        <h2>Europakarte</h2>
+                        <p>Farbe nach Anzahl der Goldmedaillen. Klicken Sie auf ein Land fuer Details.</p>
+                    </div>
+                </div>
+
+                <!-- SVG-Container für die D3-Karte -->
+                <div class="map-frame">
+                    <svg id="map" viewBox="0 0 720 560"
+                         role="img"
+                         aria-label="Karte europaeischer Medaillenerfolge">
+                    </svg>
+                </div>
+            </section>
+
+            <!-- Seitenpanel mit Tabellen und Detailinfos -->
+            <aside class="side-panel" aria-label="Tabellen und Detailinformationen">
+
+                <!-- Top 3 Länder -->
+                <section class="panel-section">
+                    <h2>Top 3 nach Gold</h2>
+                    <div id="top3-content" class="table-wrap">
+                        Daten werden geladen...
+                    </div>
+                </section>
+
+                <!-- Detailansicht des ausgewählten Landes -->
+                <section class="panel-section">
+                    <h2>Detailansicht</h2>
+                    <div id="selected-content">
+                        Klicken Sie auf ein Land, um Details zu sehen.
+                    </div>
+                </section>
+
+                <!-- Liste aller Länder -->
+                <section class="panel-section">
+                    <h2>Alle Laender</h2>
+                    <div id="country-list" class="country-list">
+                        Daten werden geladen...
+                    </div>
+                </section>
+            </aside>
+        </section>
+    </main>
+
+    <!-- Tooltip für Hover-Effekte -->
+    <div id="tooltip" class="tooltip" role="status" aria-live="polite"></div>
+
+    <!-- Haupt-JavaScript-Datei -->
+    <script src="js/main.js"></script>
+</body>
+</html>
